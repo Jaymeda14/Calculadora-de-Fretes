@@ -129,28 +129,28 @@ span {
         function calcular(){
             let valorFrete = Number(document.getElementById('valorFrete').value);
             let destino = document.getElementById('destino').value;
-            let distancia = Number(document.getElementById('distancia').value);
+            let distancia = Number(document.getElementById('distancia').value*2);
             let valTransp = valorFrete/100*5
             let lonamento = Number(60);
             let despesas = Number(100);
             let valorDiesel = Number(document.getElementById('valorDiesel').value);
             if (valorDiesel == ""){
-                valorDiesel = Number(5,60);
+                valorDiesel = Number(5.60);
             }
-            let distanciaTotal = distancia*2
-            let combNec = Math.floor(distancia/2.5)
-            let despCombustivel = Math.floor(combNec * valorDiesel)
+            
+            let combNec = distancia/4
+            let despCombustivel = combNec*valorDiesel
             let valAposAbat = valorFrete - lonamento - despesas - despCombustivel
             
 
             document.getElementById('resValorFrete').innerHTML = valorFrete.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
             document.getElementById('resTransportadora').innerHTML = valTransp.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
             document.getElementById('resDestino').innerHTML = destino;
-            document.getElementById('resDistancia').innerHTML = `${distanciaTotal} KM`;
-            document.getElementById('resCombNec').innerHTML = `${Math.floor(distancia/2.5)} Litros`;
+            document.getElementById('resDistancia').innerHTML = `${distancia} KM`;
+            document.getElementById('resCombNec').innerHTML = `${combNec} Litros`;
             document.getElementById('resDespesaCombustivel').innerHTML = despCombustivel.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
-            document.getElementById('resLonamento').innerHTML = lonamento;
-            document.getElementById('resDespesas').innerHTML = despesas;
+            document.getElementById('resLonamento').innerHTML = lonamento.toLocaleString('pt-br', {style: 'currency', currency:'BRL'});
+            document.getElementById('resDespesas').innerHTML = despesas.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
             document.getElementById('valorFinal').innerHTML = valAposAbat.toLocaleString('pt-br', {style: 'currency', currency:'BRL'})
         }
 
