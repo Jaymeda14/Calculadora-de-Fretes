@@ -106,6 +106,10 @@ span {
                 <label for="valorDiesel">Valor do Diesel:</label>
                 <input type="number" name="" id="valorDiesel" placeholder="R$ 5,60">
             </p>
+            <p>
+                <label for="mediaConsumo">Média de Consumo:</label>
+                <input type="number" name="" id="mediaConsumo" placeholder="2.5">
+            </p>
             <button id="btn" >Calcular</button>
         </fieldset>
         <fieldset>
@@ -113,7 +117,7 @@ span {
             <p>Valor do Frete: <span id="resValorFrete"></span> </p>
             <p>Trasportadora (5%): <span id="resTransportadora" class="red"></span> </p>
             <p>Destino: <span id="resDestino"></span> </p>
-            <p>Distancia Total: <span id="resDistancia"></span> </p>
+            <p>Distancia Ida e Volta: <span id="resDistancia"></span> </p>
             <p>Combustivel Necessário: <span id="resCombNec"></span> </p>
             <p>Despesa Combústivel: <span id="resDespesaCombustivel" class="res"></span> </p>
             <p>Lonamento: <span id="resLonamento" class="red"></span> </p>
@@ -137,8 +141,12 @@ span {
             if (valorDiesel == ""){
                 valorDiesel = Number(5.60);
             }
+            let mediaConsumo = document.getElementById('mediaConsumo').value;
+            if (mediaConsumo == ""){
+                mediaConsumo = 2.5
+            }
             
-            let combNec = distancia/4
+            let combNec = distancia/mediaConsumo
             let despCombustivel = combNec*valorDiesel
             let valAposAbat = valorFrete - lonamento - despesas - despCombustivel
             
