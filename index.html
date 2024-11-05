@@ -135,12 +135,14 @@ span {
             <legend>Cálculo Final</legend>
             <p>Valor do Frete: <span id="resValorFrete"></span> </p>
             <p>Trasportadora (5%): <span id="resTransportadora" class="red"></span> </p>
+            <p>Motorista (12%): <span id="resDespesas" class="red"></span> </p>
+            <p>Lonamento: <span id="resLonamento" class="red"></span> </p>
             <p>Destino: <span id="resDestino"></span> </p>
             <p>Distancia Ida e Volta: <span id="resDistancia"></span> </p>
             <p>Combustivel Necessário: <span id="resCombNec"></span> </p>
             <p>Despesa Combústivel: <span id="resDespesaCombustivel" class="res"></span> </p>
-            <p>Lonamento: <span id="resLonamento" class="red"></span> </p>
-            <p>Despesas: <span id="resDespesas" class="red"></span> </p>
+            
+            
             <p>Valor após Abatimentos: <span id="valorFinal" class="green"></span> </p>
         </fieldset>
     </main>
@@ -155,7 +157,7 @@ span {
             let distancia = Number(document.getElementById('distancia').value*2);
             let valTransp = valorFrete/100*5
             let lonamento = Number(60);
-            let despesas = Number(100);
+            let despesas = valorFrete/100*12;
             let valorDiesel = Number(document.getElementById('valorDiesel').value);
             if (valorDiesel == ""){
                 valorDiesel = Number(5.60);
@@ -167,7 +169,7 @@ span {
             
             let combNec = distancia/mediaConsumo
             let despCombustivel = combNec*valorDiesel
-            let valAposAbat = valorFrete - lonamento - despesas - despCombustivel
+            let valAposAbat = valorFrete - lonamento - despesas - despCombustivel - valTransp
             
 
             document.getElementById('resValorFrete').innerHTML = valorFrete.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
