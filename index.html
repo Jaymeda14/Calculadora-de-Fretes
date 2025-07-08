@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculador de Fretes</title>
+    <title>Calculadora de Fretes</title>
     <link rel="shortcut icon" href="imagens/caminhao-frontal.png" type="image/x-icon">
    <style>       
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
@@ -16,16 +16,18 @@ header{
     background-color: #fff;
     border: 1px solid #ccc;
     text-align: center;
-    color: #007bff;
     box-shadow: 02px 02px 02px rgba(0, 0, 0, 0.173);
 }
 
 h1{
+    color: #007bff;
     display: inline-flex;
-    text-shadow: 02px 02px 02px rgba(0, 0, 0, 0.173);;
+    text-shadow: 02px 02px 02px rgba(0, 0, 0, 0.173);
+    
 }
 img{
     height: 25px;
+    margin-left: 8px;
 }
 
 main {
@@ -38,15 +40,15 @@ main {
 fieldset {
     margin-bottom: 20px;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 10px;
-    padding-top: 0px;
     width: 100%;
     max-width: 400px;
     background-color: #fff;
 }
 
 legend {
+    color: #007bff;
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -59,14 +61,17 @@ p {
 label {
     display: block;
     margin-bottom: 5px;
+    font-weight: 500;
+    color: #333;
 }
 
 input[type="text"],
 input[type="number"] {
-    width: 200px;
-    padding: 8px;
+    max-width: 200px;
+    width: 100%;
+    padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 6px;
 }
 
 button {
@@ -74,13 +79,15 @@ button {
     background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
 }
 
 button:hover {
     background-color: #0056b3;
+    box-shadow: 1px 1px 6px rgba(0,0,0,0.3);
 }
 
 span {
@@ -118,7 +125,7 @@ span {
                 <input type="text" name="" id="destino">
             </p>
             <p>
-                <label for="distancia">Distancia:</label>
+                <label for="distancia">Distância:</label>
                 <input type="number" name="" id="distancia">
             </p>
             <p>
@@ -127,20 +134,20 @@ span {
             </p>
             <p>
                 <label for="mediaConsumo">Média de Consumo:</label>
-                <input type="number" name="" id="mediaConsumo" placeholder="2.5">
+                <input type="number" name="" id="mediaConsumo" placeholder="2.5" step="0.1">
             </p>
-            <button id="btn" >Calcular</button>
+            <button id="btn" >Calcular Frete</button>
         </fieldset>
         <fieldset>
             <legend>Cálculo Final</legend>
             <p>Valor do Frete: <span id="resValorFrete"></span> </p>
-            <p>Trasportadora (5%): <span id="resTransportadora" class="red"></span> </p>
+            <p>Transportadora (5%): <span id="resTransportadora" class="red"></span> </p>
             <p>Motorista (12%): <span id="resDespesas" class="red"></span> </p>
             <p>Lonamento: <span id="resLonamento" class="red"></span> </p>
             <p>Destino: <span id="resDestino"></span> </p>
-            <p>Distancia Ida e Volta: <span id="resDistancia"></span> </p>
-            <p>Combustivel Necessário: <span id="resCombNec"></span> </p>
-            <p>Despesa Combústivel: <span id="resDespesaCombustivel" class="res"></span> </p>
+            <p>Distância Ida e Volta: <span id="resDistancia"></span> </p>
+            <p>Combustível Necessário: <span id="resCombNec"></span> </p>
+            <p>Despesa Combustível: <span id="resDespesaCombustivel" class="res"></span> </p>
             
             
             <p>Valor após Abatimentos: <span id="valorFinal" class="green"></span> </p>
